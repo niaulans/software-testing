@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-## [The Complete 2025 Software Testing Bootcamp](https://www.udemy.com/course/testerbootcamp/)
-=======
 # [The Complete 2025 Software Testing Bootcamp](https://www.udemy.com/course/testerbootcamp/)
 
 ## Roles in the Software Development Team
@@ -329,6 +326,3 @@ Example of Agile development:
   - Register with invalid email format
   - Search for a non-existent product
   - Add a product to the cart with insufficient stock
-
-[Test Scenario Example](https://trello.com/invite/b/683ebfaee02f690827163cec/ATTI82a6c4cb18d72d38124beab102e0c30bCFEC234B/first-test-scenario)
->>>>>>> 9856190 (update files)
