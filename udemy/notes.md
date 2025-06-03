@@ -326,3 +326,69 @@ Example of Agile development:
   - Register with invalid email format
   - Search for a non-existent product
   - Add a product to the cart with insufficient stock
+
+## Black-Box Testing
+
+- Black-box testing is a software testing technique that focuses on testing the functionality of an application without knowing its internal code structure.
+
+1. **Equivalence Partitioning**
+   - Divide the input data into partitions that are expected to produce similar results.
+   - Each partition is treates as a representative of the entire set.
+   - Equivalence partitioning coverage = number of partitions covered by test cases / total number of partitions
+   - Valid value: Test with one value from each partition.
+   - Invalid value: Test with one value from each invalid partition.
+   - Example:
+     - An application allow the user to enter the password of length 8-12 numbers (minimum 8 and maximum 12 numbers).
+       - Valid: Test with 10 characters.
+       - Invalid: Test with 7, 13 characters.
+2. **Boundary Value Analysis**
+   - Focuses on testing the boundaries of input values.
+   - Tests the values at the edges of the partitions.
+   - Boundary value analysis coverage = number of boundary values covered by test cases / total number of boundary values
+   - Valid value: min, min+1, nominal, max-1, max
+   - Invalid value: min-1, max+1
+   - Example:
+     - For a field that accepts age between 0 and 100, you can test:
+       - Lower boundary: Test with 0, 1
+       - Upper boundary: Test with 99, 100
+       - Invalid values: Test with -1, 101
+3. **Decision Table Testing**
+   - A technique used to test combinations of inputs and their corresponding outputs.
+   - Useful for testing complex business rules and logic
+   - Combination = 2^n, where n is the number of inputs.
+   - Example:
+     - A login form with different combinations of username and password.
+       - Username: valid, invalid
+       - Password: valid, invalid
+       - Combinations:
+         - Valid username + valid password -> Test passes
+         - Valid username + invalid password -> Test fails
+         - Invalid username + valid password -> Test fails
+         - Invalid username + invalid password -> Test fails
+4. **State Transition Testing**
+
+   - A technique used to test the transitions between different states of an application.
+   - Useful for testing applications with different states, such as login/logout, order processing, etc.
+   - Example:
+     - Draw a state transition diagram for ATM machine:
+     1. Enter pin
+     2. Enter pin 2nd
+     3. Enter pin 3rd
+     4. Eat card (dead state)
+     5. Profile page (dead state)
+        - 1 -> 5 (valid pin)
+        - 1 -> 2 -> 5
+        - 1 -> 2 -> 3 -> 5
+        - 1 -> 2 -> 3 -> 4 (invalid pin)
+
+5. **Pairwise Testing**
+   - A technique used to test combinations of inputs by testing all possible pairs of input values.
+   - Useful for reducing the number of test cases while still covering a wide range of scenarios.
+   - Apply pairwise testing when you have multiple inputs with multiple values (filters, options, etc.).
+   - Example:
+     - If you have 3 inputs with 3 possible values each, you can create pairs of inputs to cover all combinations.
+     - Inputs: A (1, 2, 3), B (X, Y, Z), C (True, False)
+     - Pairs:
+       - (1, X), (1, Y), (1, Z)
+       - (2, X), (2, Y), (2, Z)
+       - (3, X), (3, Y), (3, Z)
