@@ -327,6 +327,8 @@ Example of Agile development:
   - Search for a non-existent product
   - Add a product to the cart with insufficient stock
 
+[Test Scenario Example](https://trello.com/invite/b/683ebfaee02f690827163cec/ATTI82a6c4cb18d72d38124beab102e0c30bCFEC234B/first-test-scenario)
+
 ## Black-Box Testing
 
 - Black-box testing is a software testing technique that focuses on testing the functionality of an application without knowing its internal code structure.
@@ -392,3 +394,228 @@ Example of Agile development:
        - (1, X), (1, Y), (1, Z)
        - (2, X), (2, Y), (2, Z)
        - (3, X), (3, Y), (3, Z)
+
+## Test Case Writing
+
+**Test Case**:
+
+- A set of preconditions, inputs, actions (where applicable). expected results and postconditions, developed based on test conditions.
+- A test case is a detailed description of how to test a specific functionality or feature of the application.
+
+Contents of a Test Case:
+
+1. **Test case ID**: A unique identifier for the test case.
+   - Example: TC001
+2. **Test case title**: A brief desription of the test case.
+   - Example: Verify login with a valid username & password.
+3. **Pre-condition**: The state of the system before the test case is executed.
+   - Example: User is already registered using valid credentials.
+4. **Test steps**: The actions to be performed to execute the test case.
+   - Example:
+     1. Enter a valid username in the username field.
+     2. Enter a valid password in the password field.
+     3. Tap on the login button.
+5. **Test data**: The data required to execute the test case.
+   - Example:
+     - Username: testuser
+     - Password: testpassword123
+6. **Expected result**: The expected outcome of the test case.
+   - Example: User is logged in successfully and redirected to (XYZ) page.
+7. **Test scenario/Test suite**: A collection of related test cases that cover a specific functionality or feature.
+   - Example: Login functionality
+8. **Test environment**: The environment in which the test case is executed.
+   - Example:
+     - Windows 11 - Chrome - Wifi - Samsung
+     - Samsung Note 20 - Android 13 4G Network
+     - iPhone 15 Pro - iOS 16.1 - 5G Network
+9. **Actual result**: The actual outcome of the test case after execution. Never fill the actual result until you execute the test case.
+   - Example: User is logged in successfully and redirected to (XYZ) page.
+10. **Status**: The status of the test case after execution.
+
+- New (Ready to test): The test case is not executed.
+- Pass: The test case is executed and the actual result is the same as the expected result.
+- Fail: The test case is executed and the actual result is different from the expected result.
+- Blocked/Skipped: The test case cannot be executed due to some reason (e.g.environment issue, dependency issue, dependent test case failed, etc.).
+
+11. **Comments**: Any additional information or notes related to the test case.
+    - Example: The test case is blocked due to a dependency issue.
+
+| Content          | Example                                                                                                                             |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| ID               | TC001                                                                                                                               |
+| Title            | Login with a valid username & password                                                                                              |
+| Pre-condition    | User is already registered using valid credentials                                                                                  |
+| Test steps       | 1. Enter a valid username in the username field.<br>2. Enter a valid password in the password field.<br>3. Tap on the login button. |
+| Expected result  | User is logged in successfully and redirected to (XYZ) page.                                                                        |
+| Test scenario    | Login functionality                                                                                                                 |
+| Test environment | Windows 11 - Chrome - Wifi - Samsung                                                                                                |
+| Actual result    | User is logged in successfully and redirected to (XYZ) page.                                                                        |
+| Status           | Pass                                                                                                                                |
+| Comments         | N/A                                                                                                                                 |
+
+## Test Execution & Bug/Defect Reporting
+
+### What is a defect?
+
+- An imperfection or deficiency in a work product where it doec not meet its requirements or specifications. [Synonym: bug, fault]
+
+### What is defect report?
+
+- Documentation of the occurence, nature, and status of a defect.
+
+#### Defect Report Components
+
+1. **Defect ID**: A unique identifier for the defect.
+   - Example: DEF001
+2. **Defect Report Title**: A brief description of the defect.
+   - Example:
+     Section -> Description
+     Register -> No error message appears when user leaves password field empty.
+3. **Steps to reproduce**: A detailed description of the steps to reproduce the defect. It must be very specific and clear.
+   - Example:
+     1. Open www.nezamacademy.com
+     2. Click on the hamburger icon in the upper left
+     3. Scroll down to the bottom of the screee
+     4. Click on Settings
+     5. Click on data usage
+     6. Change data usage to "minimum limit"
+4. **Expected result**: The expected outcome of the test case.
+   - Example: The minimum limit should be set to 1GB.
+5. **Actual result**: What really happened when the steps are executed.
+   - Example: The minimum limit is set to 0.5GB.
+6. **Test environment(s)**: The environment in which defect occured.
+   - Example: Windows 11 - Chrome - Wifi - Development environment
+7. **Screenshot or video**: A screenshot or video of the defect to help the developers understand the issue.
+   - The screenhot must be show the whole screen, not just the part of it.
+   - A red rectangle should be around the defect area.
+   - The video should show the clocks on the keyboard.
+   - Click -> Pc, Tap -> Mobile, Tablet
+8. **Defect priority**: The priority of the defect, which indicates how quickly it should be fixed.
+   Levels:
+   - Critical: Login isn't working - Application crashes in home page - Wrong cart value
+   - High: Login page responds slowly - User is not able to add profile image
+   - Medium: Some pages have poor performance - Potrait mode isn't working correctly
+   - Low: Spelling mistakes - Image misalignment
+9. **Defect severity**: The severity of the defect, which indicates the impact of the defect on the application.
+   Levels:
+   - Critical: The defect causes the application to crash or lose data
+   - High: The defect causes a major functionality to fail, but the application is still usable
+   - Medium: The defect causes a minor functionality to fail, but the application is still usable
+   - Low: The defect does not affect the functionality of the application, but it is a cosmetic issue.
+
+- Defect priority and severity are not the same.
+- Priority is about how quickly the defect should be fixed, while severity is about the impact of the defect on the application.
+- A defect can have high priority and low severity, or low priority and high severity.
+- Example:
+  - A spelling mistake in the login page can be a low severity defect, but it can be a high priority defect if it is a critical part of the application.
+  - A crash in the application can be a high severity defect, but it can be a low priority defect if it is not a critical part of the application.
+
+### Types of Defects
+
+1. **Functional Defects**: Defects that affect the functionality of the application.
+   - Example: Login page is not working, user is not able to add a product to the cart.
+2. **Visual (UI)**: Defects that affect the visual appearance of the application.
+   - Example: Spelling mistakes, image misalignment, wrong font size.
+3. **Content**: Defects that affect the content of the application.
+   - Example: Wrong text in the button, wrong text in the label, wrong text in the error message.
+4. **Performance**: Defects that affect the performance of the application.
+   - Example: Video take too much time to play
+5. **Suggestion**: Defects are not defects, but suggestion for improvement.
+   - Example: The font of the placeholder should be bigger.
+
+Example of Defect Report:
+| Content | Example |
+| ------- | ------- |
+| Defect ID | DEF001 |
+| Title | Login -> Forgot password button isn't working |
+| Steps to reproduce | 1. Open www.nezamacademy.com<br>2. Click on the login button<br>3. Click on the forgot password button |
+| Expected result | The button can be clicked and user should be redirected to a page to enter his email address |
+| Actual result | Clicking on the button doesn't have any impact |
+| Test environment | Samsung galaxy Note 10 - Android 10 - 4G Network |
+| Priority | High |
+| Severity | High |
+| Screenshot or video | ![Screenshot](assets/defect-example.png) |
+| Comments | N/A |
+
+### Defect Life Cycle
+
+- The defect life cycle is the process that a defect goes through from the moment it is reported until it is fixed and closed.
+
+![Defect Life Cycle](assets/defect%20life%20cycle.png)
+
+1. **New**: The defect is reported and logged in the defect tracking system.
+2. **Assigned**: The defect is assigned to a developer for investigation and fixing.
+3. **Open**: The developer starts working on the defect.
+4. **Duplicate/Rejected/Deffered/Not a bug**: The defect is either a duplicate of an existing defect, rejected as not a valid defect, deferred to a later release, or determined to be not a bug.
+   - Duplicate: The defect is already reported and logged in the defect tracking system.
+   - Rejected: The defect is not a valid defect and does not require fixing.
+   - Deferred: The defect is not critical and will be fixed in a later release.
+   - Not a bug: The reported issue is not a defect but rather an expected behavior of the application.
+5. **Fixed**: The developer has fixed the defect and is ready for testing.
+6. **Pending Retest**: The defect is ready for retesting by the tester.
+7. **Retest**: The tester retests the defect to verify if it is fixed.
+8. **Reopen**: If the defect is not fixed, it is reopened and assigned back to the developer.
+9. **Verified**: If the defect is fixed, it is verified by the tester.
+10. **Closed**: The defect is closed if it is fixed and verified by the tester.
+
+### Accessibility Testing & Accessibility Defects
+
+- **Accessibility Testing**: A type of testing that ensure the application is accessible to people with disabilities.
+- **Accessibility Defects**: Defects that affect the accessibility of the application.
+- Example of Accesibility Defects:
+  - Missing alt text for images
+  - Poor color contrast between text and background
+  - Missing labels for form fields
+  - Missing keyboard navigation support
+- **WCAG**: Web Content Accessibility Guidelines, a set of guidelines for making web content more accessible to people with disabilities.
+- AxeDevTools: A tool for checking accessibility issues in web applications.
+
+### Common Website Elements & Pages
+
+- **Hero**: The main section of the homepage that showcases the main features or products of the website.
+- **Banner**: A digital advertisement display in the header, footer, or sidebars of websites.
+- **Carousel**: A slideshow for cycling through a series of images or any visual content
+- **Navigation**: Allows users to navigate one section of website to another.
+- **Hamburger menu**: Used to save space on the screen and denotes a hidden menu.
+- **Breadcrumb**: A type of navigation that reveals the users location on a website.
+- **Popup**: A window that appears on top of the current page, usually to display additional information or to prompt the user for an action.
+- **Toggle button**: Allows the user to change a setting between two states.
+- **Checkbox**: A small box that can be checked or unchecked to select or deselect an option.
+- **Textbox**: An input field that allows the user to enter text.
+- **Dropdown**: A list of options that can be selected by the user.
+- **Radio button**: A button that allows the user to select one option from a group of options.
+- **Tabs**: A navigation element that allows the user to switch between different sections of content.
+- **Footer**: The bottom section of a webpage that contains additional information, links, and copyright information.
+
+### BDD - Gherkin Language
+
+- **BDD**: Behavior Driven Development, a software development approach that encourages collaboration between developers, testers, and business stakeholders.
+- **Gherkin Language**: A domain-specific language used to write BDD test cases in a human-readable format.
+- Gherkin syntax is used to write test cases in a structured format that can be easily understood by both technical and non-technical stakeholders.
+- Gherkin test cases are written in a Given-When-Then format, which describes the initial context, the action taken, and the expected outcome.
+- Example of Gherkin test case:
+
+```gherkin
+Feature: Login functionality
+
+   Scenario: User can login with valid credentials
+      Given the user is on the login page
+      When the user enters a valid username and password
+      When the user clicks on the login button
+      Then the user should be redirected to the dashboard page
+
+   Scenario: User cannot login with invalid credentials
+      Given the user is on the login page
+      When the user enters an invalid username and password
+      When the user clicks on the login button
+      Then an error message should be displayed
+```
+
+```gherkin
+As a user, I want to add items to cart that I can purchase them
+
+Given user open cart page
+When user adds ietmsto cart
+Then number of items in cart is changes
+And total price appears correctly
+```
