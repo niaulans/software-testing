@@ -13,25 +13,25 @@ import org.junit.jupiter.api.condition.OS;
 public class DisabledEnabledTest {
 
     @Test
-    @Disabled(value = "Diabled for demo of @Disabled")
+    @Disabled(value = "Diabled for demo of @Disabled") // This test will not run
     void firstTest() {
         System.out.println("This is the first test method");
     }
 
     @Test
-    @DisabledOnOs(value = OS.MAC, disabledReason = "Disabled for demo of @DisabledOnOs")
+    @DisabledOnOs(value = OS.MAC, disabledReason = "Disabled for demo of @DisabledOnOs") // This test will not run on Mac OS
     void secondTest() {
         System.out.println("This is the second test method");
     }
 
     @Test
-    @DisabledIfSystemProperty(named = "env", matches =  "staging")
+    @DisabledIfSystemProperty(named = "env", matches =  "staging") // This test will not run if the system property "env" is set to "staging"
     void thirdTest() {
         System.out.println("This is the third test method");
     }
 
     @Test
-    @DisabledIf(value = "provider", disabledReason = "Disabled for demo of @DisabledIf")
+    @DisabledIf(value = "provider", disabledReason = "Disabled for demo of @DisabledIf") // This test will not run if the provider method returns true
     void fourthTest() {
         System.out.println("This is the fourth test method");
     }

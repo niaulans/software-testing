@@ -2,6 +2,13 @@
 
 ## Junit5 Tests
 
+- **methodName_expectedBehavior_whenCondition** -> structure for naming test methods in JUnit 5, where:
+
+  - **<methodName>**: the name of the method being tested.
+  - **<expectedBehavior>**: the expected outcome of the test.
+  - **<whenCondition>**: an optional condition under which the test is run, providing additional context for the test case.
+  - **Example**: `calculateSum_returnsCorrectSum_whenTwoPositiveNumbers` indicates that the `calculateSum` method is being tested to ensure it returns the correct sum when two positive numbers are provided.
+
 ### Test Annotations
 
 - **@Test**: tag to indicate a method is a test case.
@@ -35,14 +42,6 @@
   - **TestMethodOrder(MethodOrderer.MethodName.class)**: orders test methods by their names in lexicographical order.
   - **TestMethodOrder(MethodOrderer.Random.class)**: orders test methods in a random order for each test run.
 
-### Assertions
-
-- **assertEquals(expected, actual)**: checks if the expected value is equal to the actual value.
-- **assertNotEquals(unexpected, actual)**: checks if the unexpected value is not equal to the actual value.
-- **assertTrue(condition)**: checks if the condition is true.
-- **assertFalse(condition)**: checks if the condition is false.
-- **assertNull(object)**: checks if the object is null.
-
 ### Assumptions
 
 - **assumeTrue(condition)**: checks if the condition is true; if not, the test is skipped.
@@ -60,3 +59,36 @@
 - **@DisabledIf**: used to disable a test method or class based on a condition, such as an environment variable or system property.
 - **EnabledIfSystemProperty**: used to enable a test method or class if a specific system property is set to a certain value.
 - **DisabledIfSystemProperty**: used to disable a test method or class if a specific system property is set to a certain value.
+
+### Repeating Tests
+
+- **@RepeatedTest**: used to indicate that a test method should be executed multiple times.
+- **@TestTemplate**: used to indicate that a test method is a template for other tests, allowing for dynamic test generation.
+
+### Tags
+
+- **@Tag**: used to categorize tests with specific tags, allowing for filtering and grouping of tests.
+
+### Assertions
+
+- **assertEquals(expected, actual)**: checks if the expected value is equal to the actual value.
+- **assertNotEquals(unexpected, actual)**: checks if the unexpected value is not equal to the actual value.
+- **assertTrue(condition)**: checks if the condition is true.
+- **assertFalse(condition)**: checks if the condition is false.
+- **assertNull(object)**: checks if the object is null.
+- **assertAll(assertions)**: checks if all assertions are true, allowing for multiple assertions to be checked in a single test.
+- **assertThrows(expectedType, executable)**: checks if the executable throws an exception of the expected type.
+
+### Running Tests Manually
+
+- **mvn test**: command to run all tests in the project.
+- **mvn test -Dtest=TestClassName**: command to run a specific test class.
+- **mvn test -Dtest=TestClassName#testMethodName**: command to run a specific test method in a test class.
+- **mvn test -Dtest=TestClassName#testMethodName[1]**: command to run a specific test method with a specific parameter set in a parameterized test.
+- **mvn test -Dname=TestClassName**: command to run tests with a specific name pattern.
+- **mvn test -Dgroups=tagName**: command to run tests with a specific tag.
+- **mvn test -DskipTests**: command to skip running tests during the build process.
+
+<br>
+
+- **mvn clean install -DskipTests**: command to clean the project, build it, and skip running tests.
