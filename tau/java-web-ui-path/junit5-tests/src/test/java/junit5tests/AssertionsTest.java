@@ -1,5 +1,6 @@
 package junit5tests;
 
+import listeners.Listener;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -14,7 +15,9 @@ import java.util.Map;
 import org.hamcrest.Matchers;
 import static org.hamcrest.MatcherAssert.assertThat;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
+@ExtendWith(Listener.class)
 public class AssertionsTest {
 
     @Test

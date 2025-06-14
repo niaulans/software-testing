@@ -92,3 +92,85 @@
 <br>
 
 - **mvn clean install -DskipTests**: command to clean the project, build it, and skip running tests.
+
+### Listeners
+
+- **TestWatcher**: used to listen for test events and perform actions based on those events.
+  - **TestWatcher**: a base class for creating custom test watchers that can react to test lifecycle events.
+  - **TestExecutionExceptionHandler**: used to handle exceptions thrown during test execution, allowing for custom error handling.
+  - **TestReporter**: used to report additional information during test execution, such as custom messages or results.
+- **ExtendWith**: used to extend the functionality of a test class with additional features, such as custom annotations or listeners.
+
+### Timeouts, Nested Tests, and Custom Annotations
+
+- **@Timeout**: used to specify a maximum time limit for a test method to complete. If the test exceeds this time, it will fail.
+- **@Nested**: used to create nested test classes, allowing for better organization of tests and shared setup/teardown logic.
+- Use interfaces to create custom annotations for tests, allowing for reusable test logic and configurations.
+  - **@CustomAnnotation**: an example of a custom annotation that can be used to mark test methods or classes with specific behavior or metadata.
+
+## Web Element Locator Strategies
+
+- HTML is a markup language used to create web pages, consisting of elements represented by tags.
+- Each element can have attributes that provide additional information about the element.
+- Document object model (DOM) is a tree structure representing the HTML document, where each node corresponds to an element or attribute.
+- **Element**: a single HTML tag in the DOM, such as `<div>`, `<span>`, or `<input>`.
+- **Locator**: a way to identify and interact with elements in the DOM, allowing for automation of web interactions.
+- **Selector**: string used to locate elements in the DOM, such as CSS selectors or XPath expressions.
+
+| Term         | What is it?                          | Example                                           |
+| ------------ | ------------------------------------ | ------------------------------------------------- |
+| **Element**  | The actual object on the web page    | `WebElement loginBtn`                             |
+| **Locator**  | A strategy used to find an element   | `By.id("username")`                               |
+| **Selector** | The string query used in the locator | `"input[type='text']"` or `//button[@id='login']` |
+
+### Web Driver Locators
+
+- WebDriver provides various locator strategies to find elements on a web page, including:
+  - **By.id**: locates an element by its unique ID attribute.
+  - **By.name**: locates an element by its name attribute.
+  - **By.className**: locates elements by their class attribute.
+  - **By.tagName**: locates elements by their tag name.
+  - **By.linkText**: locates a link element by its visible text.
+  - **By.partialLinkText**: locates a link element by a partial match of its visible text.
+  - **By.cssSelector**: locates elements using CSS selectors.
+  - **By.xpath**: locates elements using XPath expressions.
+
+The order of preference for locator strategies is as follows:
+
+1. **By.id**: Fastest and most reliable, as IDs are unique.
+2. **By.name**: Useful for form elements, but not always unique.
+3. **By.className**: Can match multiple elements, but may not be unique.
+4. **By.tagName**: Matches all elements of a specific type, but not unique.
+5. **By.linkText**: Useful for links, but requires exact text match.
+6. **By.partialLinkText**: Useful for links, but requires partial text match.
+7. **By.cssSelector**: Flexible and powerful, but can be complex.
+8. **By.xpath**: Most powerful and flexible, but can be slower and more complex.
+
+- When using locators, it's important to choose the most efficient and reliable strategy based on the structure of the HTML document and the specific requirements of the test case.
+
+### CSS Selectors
+
+- CSS selectors are patterns used to select elements in an HTML document based on their attributes, relationships, and hierarchy.
+
+  - `.` -> class selector
+  - `#` -> ID selector
+  - `>` -> child selector
+  - `space` -> descendant selector
+  - `,` -> group selector
+  - `:` -> pseudo-class selector
+  - `:not()` -> negation pseudo-class
+
+- **CSS Selector Examples**:
+  - `div` -> selects all `<div>` elements.
+  - `div.class` -> selects all `<div>` elements with a specific class.
+  - `div#id` -> selects a specific `<div>` element with a unique ID.
+  - `div > p` -> selects all `<p>` elements that are direct children of a `<div>`.
+  - `div p` -> selects all `<p>` elements that are descendants of a `<div>`.
+  - `#id ` -> selects an element with a specific ID.
+  - `.class` -> selects all elements with a specific class.
+  - `div.class1 div.class2` -> selects all `<div>` elements with both `class1` and `class2`. `class2` must be a descendant of `class1`.
+  - `div.class1 > div.class2` -> selects all `<div>` elements with `class2` that are direct children of a `<div>` with `class1`.
+  - `div.class1, div.class2` -> selects all `<div>` elements with either `class1` or `class2`.
+  - `div.result:not(.result --more)` -> selects all `<div>` elements with the class `result` that do not have the class `result --more`.
+  - `div.result:nth-child(2)` -> selects the second `<div>` element with the class `result`.
+  - `div.result:nth-of-type(2)` -> selects the second `<div>` element of type `result` among its siblings.
