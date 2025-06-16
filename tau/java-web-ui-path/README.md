@@ -152,8 +152,8 @@ The order of preference for locator strategies is as follows:
 
 - CSS selectors are patterns used to select elements in an HTML document based on their attributes, relationships, and hierarchy.
 
-  - `.` -> class selector
   - `#` -> ID selector
+  - `.` -> class selector
   - `>` -> child selector
   - `space` -> descendant selector
   - `,` -> group selector
@@ -161,16 +161,54 @@ The order of preference for locator strategies is as follows:
   - `:not()` -> negation pseudo-class
 
 - **CSS Selector Examples**:
-  - `div` -> selects all `<div>` elements.
-  - `div.class` -> selects all `<div>` elements with a specific class.
-  - `div#id` -> selects a specific `<div>` element with a unique ID.
-  - `div > p` -> selects all `<p>` elements that are direct children of a `<div>`.
-  - `div p` -> selects all `<p>` elements that are descendants of a `<div>`.
-  - `#id ` -> selects an element with a specific ID.
-  - `.class` -> selects all elements with a specific class.
-  - `div.class1 div.class2` -> selects all `<div>` elements with both `class1` and `class2`. `class2` must be a descendant of `class1`.
-  - `div.class1 > div.class2` -> selects all `<div>` elements with `class2` that are direct children of a `<div>` with `class1`.
-  - `div.class1, div.class2` -> selects all `<div>` elements with either `class1` or `class2`.
-  - `div.result:not(.result --more)` -> selects all `<div>` elements with the class `result` that do not have the class `result --more`.
-  - `div.result:nth-child(2)` -> selects the second `<div>` element with the class `result`.
-  - `div.result:nth-of-type(2)` -> selects the second `<div>` element of type `result` among its siblings.
+  | **Selector** | **Description** |
+  |--------------------------------------|-------------------------------------------------------------------------------|
+  | `div` | Selects all `<div>` elements |
+  | `div.class` | Selects all `<div>` elements with a specific class |
+  | `div#id` | Selects a specific `<div>` element with a unique ID |
+  | `div > p` | Selects all `<p>` elements that are direct children of a `<div>` |
+  | `div p` | Selects all `<p>` elements that are descendants of a `<div>` |
+  | `#id` | Selects an element with a specific ID |
+  | `.class` | Selects all elements with a specific class |
+  | `div.class1 div.class2` | Selects all `<div>` elements with `class2` that are descendants of `class1` |
+  | `div.class1 > div.class2` | Selects all `<div>` elements with `class2` that are direct children of `class1` |
+  | `div.class1, div.class2` | Selects all `<div>` elements with either `class1` or `class2` |
+  | `div.result:not(.result--more)` | Selects all `<div>` elements with class `result` that do not have `result--more` |
+  | `div.result:nth-child(2)` | Selects the second child `<div>` with class `result` |
+  | `div.result:nth-of-type(2)` | Selects the second `<div>` of type `result` among its siblings |
+  | `input[type='text']` | Selects all `<input>` elements of type `text` |
+  | `button#main-button.submit` | Selects a `<button>` with ID `main-button` and class `submit` |
+  | `input[type="checkbox"] + label` | Selects a `<label>` that is immediately after an `<input type="checkbox">` |
+  | `input[required]` | Selects all `<input>` elements with the `required` attribute |
+
+### XPath Selectors
+
+- XPath is a language used to navigate and select nodes in an XML or HTML document. It provides a way to traverse the document tree and locate elements based on their attributes, relationships, and hierarchy.
+
+- **XPath Selector Examples**:
+  | **XPath** | **Description** |
+  |----------------------------------------------------------|-----------------------------------------------------------------------------------------------|
+  | `//*` | Selects all elements in the document |
+  | `//div` | Selects all `<div>` elements in the document |
+  | `//div[@class='class']` | Selects all `<div>` elements with a specific class attribute |
+  | `//div[@id='id']` | Selects a specific `<div>` element with a unique ID attribute |
+  | `//div/p` | Selects all `<p>` elements that are descendants of a `<div>` |
+  | `//div/p[@class='class']` | Selects all `<p>` elements with a specific class that are descendants of a `<div>` |
+  | `//div[@id='id']/p` | Selects all `<p>` elements that are direct children of a `<div>` with a specific ID |
+  | `//a[text()='link text']` | Selects an `<a>` element with specific visible text |
+  | `//a[contains(text(), 'partial text')]` | Selects an `<a>` element with partial visible text |
+  | `//input[@type='text']` | Selects all `<input>` elements of type `text` |
+  | `//input[@name='name']` | Selects an `<input>` element with a specific `name` attribute |
+  | `//img[@width<20][@height<20]` | Selects all `<img>` elements with width and height less than 20 pixels |
+  | `//div[contains(@class, 'class1') and contains(@class, 'class2')]` | Selects all `<div>` elements that have both `class1` and `class2` in the class attribute |
+  | `//input[@name='q' or @id='search']` | Selects an `<input>` element with either a specific `name` or `ID` attribute |
+  | `//p[not(contains(@class, 'class'))]` | Selects all `<p>` elements that do not contain a specific class |
+  | `//div[starts-with(@class, 'prefix')]` | Selects all `<div>` elements whose class attribute starts with a specific prefix |
+  | `//p[contains(., 'text')]` | Selects all `<p>` elements that contain a specific text (anywhere inside, not just direct text) |
+  | `(//h2[contains(@class, 'class')])[1]` | Selects the first `<h2>` element with a specific class |
+  | `//div[contains(@class, 'class')][contains(., 'text')]` | Selects all `<div>` elements with a specific class that also contain a specific text |
+  | `//a[.//img]` | Selects all `<a>` elements that contain an `<img>` inside |
+  | `//a[contains(@class, 'class')][preceding::div[@class='class']]` | Selects `<a>` with a specific class preceded by a `<div>` with that class |
+  | `//a[contains(@class, 'class')][following::div[@class='class']]` | Selects `<a>` with a specific class followed by a `<div>` with that class |
+  | `//input[@type='checkbox']/following-sibling::label[1]` | Selects the first `<label>` element that follows an `<input type="checkbox">` |
+  | `//tr/td[last()]` | Selects the last `<td>` element in each `<tr>` row |
