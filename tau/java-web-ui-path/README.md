@@ -7,7 +7,13 @@
   - **<methodName>**: the name of the method being tested.
   - **<expectedBehavior>**: the expected outcome of the test.
   - **<whenCondition>**: an optional condition under which the test is run, providing additional context for the test case.
-  - **Example**: `calculateSum_returnsCorrectSum_whenTwoPositiveNumbers` indicates that the `calculateSum` method is being tested to ensure it returns the correct sum when two positive numbers are provided.
+  - **Example**:
+    | Test Method Name | Description |
+    | --------------------------------------------------------- | ------------------------------------------------------------------------- |
+    | retrievePassword_shouldShowError_whenEmailIsEmpty() | Verifies that retrieving password shows an error when the email is empty |
+    | login_shouldRedirectToDashboard_whenCredentialsAreValid() | Verifies that login redirects to the dashboard when credentials are valid |
+    | submitForm_shouldFail_whenRequiredFieldsAreMissing() | Verifies that the form submission fails when required fields are missing |
+    | uploadFile_shouldShowSuccessMessage_whenFileIsValid() | Verifies that file upload shows a success message when the file is valid |
 
 ### Test Annotations
 
@@ -212,3 +218,77 @@ The order of preference for locator strategies is as follows:
   | `//a[contains(@class, 'class')][following::div[@class='class']]` | Selects `<a>` with a specific class followed by a `<div>` with that class |
   | `//input[@type='checkbox']/following-sibling::label[1]` | Selects the first `<label>` element that follows an `<input type="checkbox">` |
   | `//tr/td[last()]` | Selects the last `<td>` element in each `<tr>` row |
+
+### Codeless Locators
+
+- Codeless locators are tools or frameworks that allow users to interact with web elements without writing code, often through a graphical user interface (GUI).
+- They typically use a combination of visual element recognition and predefined strategies to identify elements on a web page.
+- Examples of codeless locator tools include:
+- **Selenium IDE**: a browser extension that allows users to record and playback tests without writing code.
+- **Katalon Recorder**: a browser extension that provides codeless test automation capabilities.
+- **TestProject**: a cloud-based test automation platform that supports codeless test creation and execution.
+- **Ranorex**: a commercial tool that provides codeless test automation capabilities for web, desktop, and mobile applications.
+- **UFT (Unified Functional Testing)**: a commercial tool that supports codeless test automation for web and desktop applications.
+
+### Best Practices for Locators
+
+**1. Prefer Unique IDs**
+
+- Use when available.
+- IDs are the fastest and most reliable locator.
+- ✅ Example: `#login-button` (CSS) or `//*[@id='login-button']` (XPath)
+
+**2. Use Descriptive and Stable Attributes**
+
+- Choose attributes like `name`, `data-*`, `aria-*` that are unlikely to change.
+- ✅ Example: `input[name='email']`, `button[data-test='submit']`
+
+**3. Avoid Auto-Generated or Dynamic Attributes**
+
+- ❌ Avoid using IDs or classes that are randomly generated or change often.
+- ❌ Example: `div[class='x-1024-header']`
+
+**4. Use CSS Selectors Over XPath (When Possible)**
+
+- CSS is faster and simpler in most environments.
+- ✅ Example (CSS): `div.content > p`
+- ❌ Example (XPath): `//div[@class='content']/p`
+
+**5. Avoid Relying on Indexes**
+
+- ❌ Avoid: `(//input)[5]` — fragile, breaks easily with UI changes.
+- ✅ Use meaningful attributes or relationships instead.
+
+**6. Use Custom `data-*` Attributes**
+
+- Add attributes like `data-testid`, `data-qa`, etc., for testing.
+- ✅ Example: `[data-testid='signup-button']`
+
+**7. Avoid Chained Class Selectors**
+
+- ❌ Avoid: `div.container .main .content .title`
+- ✅ Prefer simpler selectors: `.title`, or attribute-based selectors
+
+**8. Use Text Carefully**
+
+- Useful when the text is stable (e.g., button/label).
+- ✅ Example: `//button[text()='Submit']`
+- ❌ Avoid: `//a[text()='Click here']` if the text can change or is translated
+
+**9. Keep Locators Short and Readable**
+
+- Prefer simple, semantic selectors over deeply nested ones.
+- ✅ `input[name='username']`
+- ❌ `html > body > div > form > div:nth-child(1) > input`
+
+**10. Regularly Maintain and Refactor Locators**
+
+- Keep up with UI changes.
+- Use a centralized locator strategy (e.g., Page Object Model).
+
+## Selenium WebDriver with Java
+
+- **Page Object Model (POM)** is a design pattern that enhances test maintainability and readability by encapsulating web page elements and actions in separate classes.
+- **Example**:
+  - LoginPage.java -> contains locators and methods for interacting with the login page.
+  - LoginTest.java -> contains test cases that use the LoginPage class to perform actions and assertions.
