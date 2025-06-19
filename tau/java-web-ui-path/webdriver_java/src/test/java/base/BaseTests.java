@@ -7,6 +7,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 
 import pages.HomePage;
+import utils.WindowManager;
 
 public class BaseTests {
 
@@ -22,6 +23,7 @@ public class BaseTests {
         // options.addArguments("--window-size=1920,1080");
 
         driver = new ChromeDriver();
+        // driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); // Set implicit wait, will wait up to 30 seconds for elements to be found, if not found immediately will wait until timeout, and then throw an exception
         driver.get("https://the-internet.herokuapp.com/");
 
         homePage = new HomePage(driver);
@@ -37,5 +39,9 @@ public class BaseTests {
     @AfterClass
     public void tearDown() {
         driver.quit();  
+    }
+
+    public WindowManager getWindowManager() {
+        return new WindowManager(driver);
     }
 }

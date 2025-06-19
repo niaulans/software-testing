@@ -70,4 +70,23 @@ public class HomePage {
         return new FramesPage(driver);
     }
 
+    public DynamicLoadingPage clickDynamicLoading() {
+        clickLink("Dynamic Loading");
+        return new DynamicLoadingPage(driver);
+    }
+
+    public LargeAndDeepDomPage clickLargeAndDeepDom() {
+        clickLink("Large & Deep DOM");
+        return new LargeAndDeepDomPage(driver);
+    }
+
+    public InfiniteScrollPage clickInfiniteScroll() {
+        clickLink("Infinite Scroll");
+        return new InfiniteScrollPage(driver);
+    }
+
+    public MultipleWindowsPage clickMultipleWindows() {
+        clickLink("Multiple Windows");
+        return new MultipleWindowsPage(driver);
+    }
 }
