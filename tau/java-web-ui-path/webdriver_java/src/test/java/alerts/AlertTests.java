@@ -5,10 +5,10 @@ import static org.testng.Assert.assertEquals;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import base.BaseTests;
+import base.BaseTests2;
 import pages.AlertsPage;
 
-public class AlertTests extends BaseTests{
+public class AlertTests extends BaseTests2{
 
     private AlertsPage alertsPage;
 

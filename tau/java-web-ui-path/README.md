@@ -292,3 +292,20 @@ The order of preference for locator strategies is as follows:
 - **Example**:
   - LoginPage.java -> contains locators and methods for interacting with the login page.
   - LoginTest.java -> contains test cases that use the LoginPage class to perform actions and assertions.
+
+## Selenium 4 with Java
+
+Selenium Client & WebDriver Language Bindings -> JSON Wire Protocol Over HTTP -> Browser Drivers -> Web Browser
+
+Advantages of Selenium 4:
+
+- **Improved W3C WebDriver Standard**: Selenium 4 fully implements the W3C WebDriver standard, ensuring better compatibility and performance across different browsers.
+- **New Features**: Selenium 4 introduces new features like relative locators, improved window and tab management, and enhanced support for modern web technologies.
+- **Better Documentation**: The documentation for Selenium 4 is more comprehensive and user-friendly, making it easier for developers to get started and find solutions to common problems.
+
+- **Relative Locators**: Selenium 4 introduces relative locators, allowing you to find elements based on their position relative to other elements.
+  - left
+  - right
+  - above
+  - below
+  - near
