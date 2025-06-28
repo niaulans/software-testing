@@ -1,0 +1,5 @@
+slides/
+
+# Maven build output
+target/
+*.class

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="MainTestSuite" parallel="tests" thread-count="2">
+    
+    <parameter name="gridUrl" value="http://localhost:4444/wd/hub"/>
+    
+    <test name="AllTests_Chrome">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="tests.SmokeTests" />
+            <class name="tests.SanityTests" />
+        </classes>
+    </test>
+    
+    <test name="AllTests_Firefox">
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="tests.SmokeTests" />
+            <class name="tests.SanityTests" />
+        </classes>
+    </test>
+    
+</suite>

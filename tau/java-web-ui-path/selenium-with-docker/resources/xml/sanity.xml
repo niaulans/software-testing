@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="SanityTestSuite" parallel="none">
+    <test name="SanityTests_Chrome">
+        <parameter name="browser" value="chrome" />
+        <groups>
+            <run>
+                <include name="sanity" />
+            </run>
+        </groups>
+        <classes>
+            <class name="login.LoginTests" />
+        </classes>
+    </test>
+    <test name="SanityTests_Firefox">
+        <parameter name="browser" value="firefox" />
+        <groups>
+            <run>
+                <include name="sanity" />
+            </run>
+        </groups>
+        <classes>
+            <class name="login.LoginTests" />
+        </classes>
+    </test>
+    
+</suite>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="SmokeTestSuite" parallel="tests" thread-count="2">
+    
+    <parameter name="gridUrl" value="http://localhost:4444/wd/hub"/>
+    
+    <test name="SmokeTests_Chrome">
+        <parameter name="browser" value="chrome" />
+        <groups>
+            <run>
+                <include name="smoke" />
+            </run>
+        </groups>
+        <classes>
+            <class name="tests.SmokeTests" />
+        </classes>
+    </test>
+    
+    <test name="SmokeTests_Firefox">
+        <parameter name="browser" value="firefox" />
+        <groups>
+            <run>
+                <include name="smoke" />
+            </run>
+        </groups>
+        <classes>
+            <class name="tests.SmokeTests" />
+        </classes>
+    </test>
+    
+</suite>

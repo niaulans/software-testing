@@ -1,0 +1,7 @@
+Name,Status,Step,Expected Result
+Test case 1,Approved,Step 1,Expected 1
+,,Step 2,Expected 2
+,,Step 3,Expected 3
+Test case 2,Draft,Step 1,Expected 1
+,,Step 2,Expected 2
+,,Step 3,Expected 3
