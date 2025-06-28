@@ -15,7 +15,7 @@
     | submitForm_shouldFail_whenRequiredFieldsAreMissing() | Verifies that the form submission fails when required fields are missing |
     | uploadFile_shouldShowSuccessMessage_whenFileIsValid() | Verifies that file upload shows a success message when the file is valid |
 
-### Test Annotations (JUnit 5)
+### Test Annotations
 
 - **@Test**: tag to indicate a method is a test case.
 - **@DisplayName**: tag to provide a custom name for the test case, useful for documentation and readability.
@@ -41,14 +41,14 @@
 - **@CsvFileSource**: used to provide parameters from a CSV file located in the resources directory, allowing for externalized test data. "" -> empty string, empty -> null.
 - **@MethodSource**: used to provide parameters from a method that returns a stream of arguments, allowing for dynamic parameterized tests. Method must be static and return a `Stream<Arguments>` or `Stream<T>`.
 
-#### Test Method Order
+### Test Method Order
 
 - **TestMethodOrder**: used to specify the order in which test methods should be executed.
   - **TestMethodOrder(MethodOrderer.OrderAnnotation.class)**: orders test methods based on the `@Order` annotation.
   - **TestMethodOrder(MethodOrderer.MethodName.class)**: orders test methods by their names in lexicographical order.
   - **TestMethodOrder(MethodOrderer.Random.class)**: orders test methods in a random order for each test run.
 
-#### Assumptions
+### Assumptions
 
 - **assumeTrue(condition)**: checks if the condition is true; if not, the test is skipped.
 - **assumeFalse(condition)**: checks if the condition is false; if not, the test is skipped.
@@ -56,7 +56,7 @@
 - **assumeAll(assumptions)**: checks if all assumptions are true; if not, the test is skipped.
 - **assumeNone(assumptions)**: checks if none of the assumptions are true; if any assumption is true, the test is skipped.
 
-#### Disabling Tests
+### Disabling Tests
 
 - **@Disabled**: used to disable a test method or a test class, indicating that it should not be executed.
 - **@EnabledOnOs**: used to enable a test method or class only on specific operating systems.
@@ -66,16 +66,16 @@
 - **EnabledIfSystemProperty**: used to enable a test method or class if a specific system property is set to a certain value.
 - **DisabledIfSystemProperty**: used to disable a test method or class if a specific system property is set to a certain value.
 
-#### Repeating Tests
+### Repeating Tests
 
 - **@RepeatedTest**: used to indicate that a test method should be executed multiple times.
 - **@TestTemplate**: used to indicate that a test method is a template for other tests, allowing for dynamic test generation.
 
-#### Tags
+### Tags
 
 - **@Tag**: used to categorize tests with specific tags, allowing for filtering and grouping of tests.
 
-#### Assertions
+### Assertions
 
 - **assertEquals(expected, actual)**: checks if the expected value is equal to the actual value.
 - **assertNotEquals(unexpected, actual)**: checks if the unexpected value is not equal to the actual value.
@@ -85,7 +85,7 @@
 - **assertAll(assertions)**: checks if all assertions are true, allowing for multiple assertions to be checked in a single test.
 - **assertThrows(expectedType, executable)**: checks if the executable throws an exception of the expected type.
 
-#### Running Tests Manually
+### Running Tests Manually
 
 - **mvn test**: command to run all tests in the project.
 - **mvn test -Dtest=TestClassName**: command to run a specific test class.
@@ -99,7 +99,7 @@
 
 - **mvn clean install -DskipTests**: command to clean the project, build it, and skip running tests.
 
-#### Listeners
+### Listeners
 
 - **TestWatcher**: used to listen for test events and perform actions based on those events.
   - **TestWatcher**: a base class for creating custom test watchers that can react to test lifecycle events.
@@ -107,7 +107,7 @@
   - **TestReporter**: used to report additional information during test execution, such as custom messages or results.
 - **ExtendWith**: used to extend the functionality of a test class with additional features, such as custom annotations or listeners.
 
-#### Timeouts, Nested Tests, and Custom Annotations
+### Timeouts, Nested Tests, and Custom Annotations
 
 - **@Timeout**: used to specify a maximum time limit for a test method to complete. If the test exceeds this time, it will fail.
 - **@Nested**: used to create nested test classes, allowing for better organization of tests and shared setup/teardown logic.
