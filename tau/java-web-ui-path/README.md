@@ -15,7 +15,7 @@
     | submitForm_shouldFail_whenRequiredFieldsAreMissing() | Verifies that the form submission fails when required fields are missing |
     | uploadFile_shouldShowSuccessMessage_whenFileIsValid() | Verifies that file upload shows a success message when the file is valid |
 
-### Test Annotations
+### Test Annotations (JUnit 5)
 
 - **@Test**: tag to indicate a method is a test case.
 - **@DisplayName**: tag to provide a custom name for the test case, useful for documentation and readability.
