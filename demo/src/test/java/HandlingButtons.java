@@ -1,32 +1,44 @@
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.Rectangle;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class HandlingButtons {
 
-    public static void main(String[] args) throws InterruptedException {
-
-        WebDriverManager.chromedriver.setup();
-        driver = new ChromeDriver();
+    @Test
+    public void testButtonHandling() {
+        WebDriverManager.chromedriver().setup();
+        ChromeDriver driver = new ChromeDriver();
         driver.get("https://letcode.in/button");
 
-        // Get the X and Y coordinates
-        WebElement findLocationButton = driver.findElementById("position");
+        // Find the button location
+        WebElement findLocationButton = driver.findElement(By.id("position"));
         Point pointLocationButton = findLocationButton.getLocation();
-        int x = point.geX();
-        int y = point.getY();
-
+        int x = pointLocationButton.getX();
+        int y = pointLocationButton.getY();
         System.out.println("x => " + x + ", y => " + y);
 
-        // Find the color of the button
-        WebElement btnColor = driver.findElementById("color");
+        // Find the color of button
+        WebElement btnColor = driver.findElement(By.id("color"));
         String color = btnColor.getCssValue("background-color");
         System.out.println(color);
 
         // Find the height & weight of the button
-        Rectangle rect = driver.findElementById("property").getRect();
+        Rectangle rect = driver.findElement(By.id("property")).getRect();
         Dimension dimension = rect.getDimension();
         dimension.getHeight();
         dimension.getWidth();
 
         // Confirm the button is disabled
-        boolean isDisabled = driver.findElementById("isDisabled").isEnabled();
+        boolean isDisabled = driver.findElement(By.id("isDisabled")).isEnabled();
         System.out.println(isDisabled);
+        System.out.println(isDisabled);
+
+        driver.quit();
     }
 }
