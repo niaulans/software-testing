@@ -41,7 +41,7 @@
 
 Example of sequential development:
 
-- **Waterfall Model**:
+- **Waterfall Model**:  
   ![Waterfall model](assets/waterfall.png)
   - A traditional SDLC model.
   - A linear and sequential approach to software development.
@@ -53,7 +53,7 @@ Example of sequential development:
     - Inflexible to changes.
     - Difficult to accommodate changes once a phase is completed.
     - Not suitable for projects with evolving requirements.
-- **V-Model**:
+- **V-Model**:  
   ![V-Model](assets/v-model.png)
 
   - Create to overcome the limitations of the Waterfall model.
