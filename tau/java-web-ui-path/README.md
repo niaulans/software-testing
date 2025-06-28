@@ -4,9 +4,9 @@
 
 - **methodName_expectedBehavior_whenCondition** -> structure for naming test methods in JUnit 5, where:
 
-  - **<methodName>**: the name of the method being tested.
-  - **<expectedBehavior>**: the expected outcome of the test.
-  - **<whenCondition>**: an optional condition under which the test is run, providing additional context for the test case.
+  - **methodName**: the name of the method being tested.
+  - **expectedBehavior**: the expected outcome of the test.
+  - **whenCondition**: an optional condition under which the test is run, providing additional context for the test case.
   - **Example**:
     | Test Method Name | Description |
     | --------------------------------------------------------- | ------------------------------------------------------------------------- |
