@@ -1,4 +1,5 @@
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -23,8 +24,22 @@ public class HandlingDropDown {
         select.selectByVisibleText("Apple");
 
         // Select your super hero's
+        WebElement heroes = driver.findElement(By.id("superheroes"));
+        Select myHeroes = new Select(heroes);
+        boolean isMultiple = myHeroes.isMultiple();
+        System.out.println("Is multiple: " + isMultiple);
+        myHeroes.selectByIndex(1);
+        myHeroes.selectByValue("bt");
+
+        List<WebElement> allHeroes = myHeroes.getAllSelectedOptions();
+        allHeroes.forEach(i -> System.out.println(i.getText()));
 
         // Select India using value & print the selected value
-        WebElement fruits2 = driver.findElement(By.cssSelector("#fruits"));
+        WebElement country = driver.findElement(By.id("country"));
+        Select myCountry = new Select(country);
+        myCountry.selectByValue("India");
+        WebElement selectedCountry = myCountry.getFirstSelectedOption();
+        System.out.println(selectedCountry.getText());
+
     }
 }
