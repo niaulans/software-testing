@@ -55,18 +55,10 @@
 
 #### Appium Philosophy
 
-1. Rule 1:
-
-- You should not have to recompile your app or modify it in any way in order to automate it.
-
-2. Rule 2:
-
-- You shouldn't be locked into a specific language or framework to write and run your tests
-
-3. Rule 3:
-   - A mobile automation framework shouldn't reinvent the wheel when it comes to automation APIs.
-4. Rule 4:
-   - A mobile automation framework should be open source, in spirit and practice as as in name.
+1. Rule 1: You should not have to recompile your app or modify it in any way in order to automate it.
+2. Rule 2: You shouldn't be locked into a specific language or framework to write and run your tests.
+3. Rule 3: A mobile automation framework shouldn't reinvent the wheel when it comes to automation APIs.
+4. Rule 4: A mobile automation framework should be open source, in spirit and practice as as in name.
 
 #### Appium Concepts
 
@@ -96,22 +88,6 @@ desired_caps = {
 }
 ```
 
-#### Check desired capabilities real devices
-
-```bash
-# Check active devices
-adb devices
-
-# Check desired capabilities of a real device
-adb shell getprop ro.build.version.release
-adb shell getprop ro.product.model
-adb shell getprop ro.product.brand
-
-# Check installed packages and activities
-adb shell pm list packages
-adb shell dumpsys package com.example.myapp | grep -i activity
-```
-
 #### Need to run Appium
 
 1. Java Development Kit (JDK)
@@ -137,23 +113,6 @@ adb shell dumpsys package com.example.myapp | grep -i activity
 - IPA file -> A file with the extension .ipa is an iOS App Store Package file, which is the package file format used by the iOS operating system for the distribution and installation of mobile apps.
 - AppBundleId -> The bundle identifier of the app, which is a unique identifier for the app. Example `com.example.myapp`.
 - AppName -> The name of the app, which is used to identify the app in the App Store. Example `MyApp`.
-
-### Run emulator
-
-```bash
-# Check available emulators
-emulator -list-avds
-
-# Start an emulator
-emulator -avd <emulator_name>
-
-# Example: Start an emulator named "Pixel_3a_API_30"
-adb devices
-emulator -avd Pixel_3a_API_30
-
-# Install an APK on the emulator
-adb install -r path/to/your/app.apk
-```
 
 ### Android and iOS Locator Strategies
 
